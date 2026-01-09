@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const authRoutes = require("./routes/auth");
+const groupRoutes = require("./routes/group");
+
 
 const app = express();
 
@@ -15,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/expenseSplitter")
   .catch(err => console.log(err));
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/groups", groupRoutes);
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });
